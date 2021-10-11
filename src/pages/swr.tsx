@@ -1,5 +1,6 @@
 import React from 'react';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
+import Link from 'next/link';
 
 // function Profile() {
 //   const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts');
@@ -23,7 +24,7 @@ const fetcher = async (url: string): Promise<user[]> => {
 };
 
 const Swr: React.VFC = () => {
-  const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher);
+  const { data, error } = useSWRImmutable('https://jsonplaceholder.typicode.com/posts', fetcher);
   console.log(data);
 
   if (!data) return <div>loading...</div>;
@@ -31,13 +32,20 @@ const Swr: React.VFC = () => {
   if (error) return <div>エラーが発生したため、データの取得に失敗しました</div>;
 
   return (
-    <div style={{ margin: 12 }}>
-      <ul>
-        {data.map((res: user, index: number) => (
-          <li key={index}>{res.title}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Link href='/'>
+        <a className='block my-8 text-center'>
+          <p>TOP</p>
+        </a>
+      </Link>
+      <div style={{ margin: 12 }}>
+        <ul>
+          {data.map((res: user, index: number) => (
+            <li key={index}>{res.title}</li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
