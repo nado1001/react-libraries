@@ -40,6 +40,12 @@ const Home: NextPage = () => {
               <h2>Learn Stitches &rarr;</h2>
             </a>
           </Link>
+
+          <Link href='/carousel'>
+            <a className={styles.card}>
+              <h2>Learn react responsive carousel &rarr;</h2>
+            </a>
+          </Link>
         </div>
       </main>
 
