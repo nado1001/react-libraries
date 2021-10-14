@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 
 /**
  * SWRでグローバルステートを作成するための共通関数
@@ -6,9 +6,8 @@ import useSWR from 'swr';
  * @param {string} key -ステート毎に所持するキー
  * @param {any} fallbackData -ステートの初期値
  */
-
 const useSharedState = (key: string, fallbackData: any) => {
-  const { data, mutate } = useSWR(key, { fallbackData });
+  const { data, mutate } = useSWRImmutable(key, { fallbackData });
   return [data, mutate];
 };
 
