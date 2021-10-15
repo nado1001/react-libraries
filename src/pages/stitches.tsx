@@ -1,20 +1,26 @@
 import type { VFC } from 'react';
 import { styled } from '../styles';
+import { Button } from '../components/Button';
 
 const stitches: VFC = () => {
   return (
-    <div>
-      <p>stitches</p>
-      <Button>ボタン</Button>
-      <Button color='violet' size='md'>
-        ボタン
-      </Button>
-      <Button color='gray'>ボタン</Button>
-    </div>
+    <>
+      <div>
+        <p>stitches</p>
+        <Button2>ボタン</Button2>
+        <Button2 color='violet' size='md'>
+          ボタン
+        </Button2>
+        <Button2 color='gray'>ボタン</Button2>
+      </div>
+      <div>
+        <Button color='blue' />
+      </div>
+    </>
   );
 };
 
-const Button = styled('button', {
+const Button2 = styled('button', {
   backgroundColor: 'gainsboro',
   borderRadius: '9999px',
   fontSize: '$2',
